@@ -14,7 +14,8 @@ def gdop_calculatio(position, coordinates):
             z = position[2]
 
             for row in coordinates:
-                r_matrix = math.sqrt((row[0] - x) ** 2 + (row[1] - y) ** 2 + (row[2] - z) ** 2)
+                r_matrix = math.sqrt(
+                    (row[0] - x) ** 2 + (row[1] - y) ** 2 + (row[2] - z) ** 2)
 
                 t_matrix = np.array([(np.array(row[0] - x) / r_matrix),
                                      (np.array(row[1] - y) / r_matrix),
@@ -23,13 +24,15 @@ def gdop_calculatio(position, coordinates):
                 a_matrix.append(t_matrix)
 
             # Test = np.cov(A)
-            q_matrix = np.linalg.inv(np.matmul(np.transpose(a_matrix), a_matrix))
+            q_matrix = np.linalg.inv(
+                np.matmul(np.transpose(a_matrix), a_matrix))
             # inv(A.' * A) * A.' * b
             # print(Q)
 
             vdop = round(math.sqrt(q_matrix[2, 2]), 2)
             hdop = round(math.sqrt(q_matrix[0, 0] + q_matrix[1, 1]), 2)
-            pdop = round(math.sqrt(q_matrix[0, 0] + q_matrix[1, 1] + q_matrix[2, 2]), 2)
+            pdop = round(
+                math.sqrt(q_matrix[0, 0] + q_matrix[1, 1] + q_matrix[2, 2]), 2)
             # tdop = round(mth.sqrt(Q[3, 3]), 2)
             # gdop = round(mth.sqrt(pow(PDOP, 2) + pow(TDOP, 2)), 2)
         else:
@@ -39,4 +42,3 @@ def gdop_calculatio(position, coordinates):
 
     except:
         return "nan", "nan", "nan"
-

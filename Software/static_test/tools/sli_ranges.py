@@ -25,8 +25,7 @@ def ranges_analisys(index_ranges, filename, anchors_filename, position, start, e
     # loading data
     data = dataset.LoadingData(position, filename, anchors_filename, index_ranges, start, end, start_comb, end_comb)
     dataSet = data.loadDataWithoutHeaders()
-    anchors_coordinates = data.loadAnchorsCoordinates()
-    
+    anchors_coordinates = data.loadAnchorsCoordinates()    
 
     #define the variable for the stats and data analysis
     trueRanges = np.zeros(len(data.indexes))
@@ -35,8 +34,7 @@ def ranges_analisys(index_ranges, filename, anchors_filename, position, start, e
     avg_error = np.zeros(len(data.indexes))
     std_error = np.zeros(len(data.indexes))
     avg_rmse = np.zeros(len(data.indexes))
-    std_rmse = np.zeros(len(data.indexes))
-    
+    std_rmse = np.zeros(len(data.indexes))    
 
     #vars to auxiliary work
     header = ""

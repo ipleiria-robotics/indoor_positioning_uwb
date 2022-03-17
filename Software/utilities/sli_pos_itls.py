@@ -1,6 +1,18 @@
 '''
-
+Main script to run to generate the data from a dataset loaded
+This uses the iterative least-square to estimate the positions
+@ parameters: 
+    index_load - indexes array from wich collumns are the ranges data from each anchor
+    filename - directory and filename where the dataset will be loaded
+    anchors_coords - directory and filanme where the anchors coordinates dataset will be loaded
+    position - real position array x,y,z[mm]
+    start - line from wich the loaded dataset will start the calculation
+    end - line fomr wich the loadad dataset will end the calculation
+    start_comb - number of anchors combination where the calculation will start (min 4)
+    end_comb - number of anchors combination where the calculation will end (max 8)
+    saving_directory - directory and filename where the resultant data will be saved
 '''
+
 import numpy as np
 import itertools as ite
 from numpy import linalg as LA
@@ -11,19 +23,7 @@ from utilities import sli_algorithms as trilateration
 from utilities import loading_data as dataset
 from utilities import sli_gdop as gdop
 
-
-# define the index from the file to obtain ranges
-# index_load = [4, 18, 32, 46, 60, 74, 88, 102]
-# index_load = [4, 8, 12, 16, 20, 24, 28, 32]  # move
-# filename = "\data_test\\128_move_fast"
-# anchors_coords = "\\anchor_coordinates"
-# position = [0, 0, 0]
-# start = 0
-# end = 1
-# start_comb = 4
-# end_comb = 8
-
-def run_itls(index_load, filename, anchors_coords, position, start, end, start_comb, end_comb, saving_directory):
+def run_itls(index_load, filename, anchors_coords, position, start, end, start_comb, end_comb, saving_directory, pos_init):
     # loading data
     data = dataset.LoadingData(position, filename, anchors_coords, index_load, start, end, start_comb, end_comb)
     dataSet = data.loadDataWithoutHeaders()
@@ -40,18 +40,9 @@ def run_itls(index_load, filename, anchors_coords, position, start, end, start_c
 
 
     # init position for the itls method
-    pos_init = [0, 0, 0]
+    # pos_init = [0, 0, 0]
 
-    # define the variable for the stats and data analysis
-    pos = np.zeros(3)
-    error_pos = np.zeros([data.end-data.start, len(data.indexes)])
-    rmse_pos = np.zeros([data.end-data.start, len(data.indexes)])
-    avg_pos = np.zeros(len(data.indexes))
-    std_pos = np.zeros(len(data.indexes))
-    avg_rmse = np.zeros(len(data.indexes))
-    std_rmse = np.zeros(len(data.indexes))
-
-    # vars to auxiliary work
+    # header to write on file
     header = "iter,timestamp,range_set,num_comb,combination,pox_x,pos_y,pos_z,error_x,error_y,error_z,rms_x,rms_y,rms_z,rms_norm,hdop,vdop,pdop\n"
 
     # runs the all ranges and combinations and store file

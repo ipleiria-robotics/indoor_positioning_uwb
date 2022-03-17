@@ -1,9 +1,15 @@
 import math as op
 import numpy as np
 
+
+ANCHORS_0_ON_X = 0 # select the anchor that works as 0 referece on X axis
+ANCHORS_0_ON_Y = 7 # select the anchor that works as 0 referece on Y axis
+
+
 COORDINATES = 3
-ANCHORS_0_ON_X = 0
-ANCHORS_0_ON_Y = 7
+
+title_coord = ["Anchor 0", "Anchor 1", "Anchor 2", "Anchor 3" ,"Anchor 4", "Anchor 5", "Anchor 6", "Anchor 7", 
+    "Position 1", "Position 2 ", "Slow start point", "Slow end point", "Fast start point", "Fast end point" ]
 
 # [range diag, V, Hz, h]
 Coords = np.array([
@@ -54,5 +60,5 @@ print("Matrix Transformed form")
 print(np.array2string(last_result, separator=','))
 
 print("Matrix script form")
-for i in last_result:
-    print(f"{int(i[0])}, {int(i[1])}, {int(i[2])}")
+for a, i in enumerate(last_result):
+    print(f"{int(i[0])}, {int(i[1])}, {int(i[2])} - {title_coord[a]}")

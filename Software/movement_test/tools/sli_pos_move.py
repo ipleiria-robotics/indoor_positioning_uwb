@@ -3,7 +3,6 @@ from dateutil import parser
 import math as mth
 from datetime import datetime
 import csv
-# import KalmanFilter as kalman
 from numpy import linalg as lin_a
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,11 +12,18 @@ sys.path.append("..")
 from utilities import loading_data as dataset
 
 
-def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, endPoint, index_ranges, line_index, timestamp_index, range_set_index, combinations_index, pos_index, position, comb_to_plot, combination_search, start, end, start_comb, end_comb, folder_to_save_plot):
+def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, endPoint, index_ranges, timestamp_index, combinations_index, pos_index, position, combination_search, start, end, start_comb, end_comb, folder_to_save_plot):
+
     timestamp_encoder_load = []
     timestamp_data_load = []
     startPoint = np.array(startPoint)
     endPoint = np.array(endPoint)
+
+    #validates the number of anchors to use
+    if combination_search is not None:
+        comb_to_plot = len(combination_search)
+    else:
+        comb_to_plot = 8
 
     with open(encoder_filename, newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -39,11 +45,11 @@ def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, en
     dataSet = data.loadingPosDataWithCondition(comb_to_plot, combination_search)
     anchors_coordinates = data.loadAnchorsCoordinates()
 
-    indexes = dataSet[:, line_index].astype(int)
+    # indexes = dataSet[:, line_index].astype(int)
     timestamp_loaded = dataSet[:, timestamp_index]
     combinations = dataSet[:, combinations_index].astype(int)
     indexes_result = np.where(combinations == comb_to_plot)
-    ranges_set = np.take(dataSet[:, range_set_index].astype(float), indexes_result)
+    # ranges_set = np.take(dataSet[:, range_set_index].astype(float), indexes_result)
     x_points = np.take(dataSet[:, pos_index[0]].astype(float), indexes_result)[0]
     y_points = np.take(dataSet[:, pos_index[1]].astype(float), indexes_result)[0]
     z_points = np.take(dataSet[:, pos_index[2]].astype(float), indexes_result)[0]
@@ -53,7 +59,6 @@ def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, en
         test = datetime.strptime(data_t.replace("'", ""), format)
         timestamp_data_load.append(test.time().strftime('%d-%m-%Y %H:%M:%S.%f')[:])
 
-    counter = 0
     before_val = None
     after_val = None
     dataXYZ = []
