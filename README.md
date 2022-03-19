@@ -6,7 +6,7 @@ Development and testing of an indoor positioning system based on UWB.
 
 The **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards were used. We adapted the examples from the Decawave's repository to program an "anchor" version and a "tag" version. The **SEGGER embedded Studio for ARM 5.70a** was the IDE used to develop firmware.
 
-For the data analysing tools Python 3 scripts were developed and using common packages.
+For the data analysing tools Python scripts were developed and using common packages.
 
 Another scripts were developed to help depending on the type of tests elaborated. More description in the follow.
 
@@ -18,7 +18,7 @@ The requirements for the usage of this repository software:
 
 - Installation of the IDE Segger to compile and program the devices DWM1001. To setting up the environment follow instructions from original Decawave's repository ([dwm1001-examples](https://github.com/Decawave/dwm1001-examples)). There you can see theadicional packages to install to compile the projects. It is important to fefer that, after the IDE installation, following the Decawave instructions, some options may need some corrections (if some change occour) and the user must be carefull with the size and format of the folder from where the project is running.
 
-- Installation of Python 3 and install the packages require to run the scripts.
+- Installation of Python 3.7.5 and install the packages require to run the scripts.
 
 **Note:** during ours test we used Arduino IDE to count pulses from an encoder attached to a linear conveyor. The script used is store on the Firwamre folder too.
 
