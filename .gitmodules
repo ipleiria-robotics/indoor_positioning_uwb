@@ -1,8 +1,0 @@
-[submodule "dwm1001-examples"]
-	path = dwm1001-examples
-	url = https://github.com/ipleiria-robotics/dwm1001-examples.git
-	branch = tag
-[submodule "dwm1001-examples"]
-	path = dwm1001-examples
-	url = https://github.com/ipleiria-robotics/dwm1001-examples.git
-	branch = amchor
