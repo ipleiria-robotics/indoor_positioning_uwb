@@ -1,0 +1,3 @@
+[submodule "firmware/decawave/dwm1001-examples"]
+	path = firmware/decawave/dwm1001-examples
+	url = https://github.com/ipleiria-robotics/dwm1001-examples.git
