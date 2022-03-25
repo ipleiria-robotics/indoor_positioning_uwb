@@ -54,13 +54,21 @@ We uploaded some dataset with data referring to 3 different examples of a static
 
 That data can be consulted on the dataset folder.
 
-A file containing the 8 anchors installed for our test is uploaded too. This is a important point that it must be studied. The installation of the anchor must be done using the concepts like Dillution of precision and respecting some manufactor conditions too. Here we show a representation of the installation and respectives coordinates used.
+A file containing the 8 anchors installed for our test is uploaded too. This is a important point that it must be studied. The installation of the anchor must be done using the concepts like Dillution of Precision (GDOP) and respecting some manufactor conditions too. 
+
+## Description of  the elaborated tests
+
+Here we show a representation of the installation and respectives coordinates used.
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/sala_info.jpg" alt="">
 
-The static test were executed in two different positions, while the dynamic test was executed with the help of a linear conveyor.
+We used this anchors disposition because we wanted to have Line-of-sight most of the comunications/positions and we have a limit on the height (3 meters). Aditional, we wanted the tag to be located inside off the area defined from the anchors. To test the localization was decided to elaborate 2 types of tests, statics and dynamics. This way it is possible to tet both situations with different difficulties. The static test was elaborated testing LOS or NLOS situations and the dynamic test were executed with different velocities on a linear conveyor moved by a DC motor.
 
-We describe now the static tests:
+Using the instrumentation described before we obtained the real positions of each anchor.
+
+#### Static Tests
+
+The static tests were divided on three situations:
 
 1. Teste 1 - Static test with all 8 anchors with LOS situation to the tag.
 
@@ -70,7 +78,7 @@ We describe now the static tests:
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
-
+#### Dynamic Tests
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
@@ -80,6 +88,12 @@ For the dynamic test, were executed using two different velocities on the convey
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/movimento1.jpg" alt="">
 
-For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz.
 
-On the next folders more information can be found.
+
+#### Devices firmware usage
+
+For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz. We used the same tag for all the elaborated tests and the anchors were on the same position on every tests. On the Firmware folder are described more information about the usage of the firmware used on the anchors an tag and to use them.
+
+#### Python Scripts usage
+
+The usage of the Python scripts were basically to read and store the data from the tag and then too run a post-processing data to compute the localization and errors analysis. On the Software folder more information can be found.
