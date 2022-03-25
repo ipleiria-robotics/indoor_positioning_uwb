@@ -92,6 +92,8 @@ For the dynamic test, were executed using two different velocities on the convey
 
 For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz. We used the same tag for all the elaborated tests and the anchors were on the same position on every tests. On the Firmware folder are described more information about the usage of the firmware used on the anchors an tag and to use them. The development were based on the Decawave's simple examples repository. So we made a Fork from their repository and created two branches, one for the anchors firmware and another for the tag firmware.
 
+Aditional for the dynamic test, an Arduino skecth were made to capture the encoders pulses that we attached on the linear conveyor so we could measure the real displacement over time.
+
 #### Python Scripts usage
 
 The usage of the Python scripts were basically to read and store the data from the tag and then too run a post-processing data to compute the localization and errors analysis. On the Software folder more information can be found.
