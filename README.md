@@ -68,7 +68,7 @@ We describe now the static tests:
 
 3. Teste 3 - Static test on a position were exists many NLOS commucations between anchors and tag.
 
-<img src="/path/to/img.jpg" alt="Alt text" title="Optional title">
+<img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
 
 
