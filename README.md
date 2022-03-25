@@ -56,7 +56,7 @@ That data can be consulted on the dataset folder.
 
 A file containing the 8 anchors installed for our test is uploaded too. This is a important point that it must be studied. The installation of the anchor must be done using the concepts like Dillution of precision and respecting some manufactor conditions too. Here we show a representation of the installation and respectives coordinates used.
 
-<img title="" src="file:///C:/Users/Rui Gomes/Desktop/SLI_decawave/indoor_positioning_uwb/img/sala_info.jpg" alt="">
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/sala_info.jpg" alt="">
 
 The static test were executed in two different positions, while the dynamic test was executed with the help of a linear conveyor.
 
@@ -72,17 +72,13 @@ We describe now the static tests:
 
 
 
-
-
-<img title="" src="file:///C:/Users/Rui Gomes/Desktop/SLI_decawave/indoor_positioning_uwb/img/static.png" alt="">
-
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
 1. Slow - Test with a low velocity
 
 2. Fast - Test with a high velocity
 
-<img title="" src="file:///C:/Users/Rui Gomes/Desktop/SLI_decawave/indoor_positioning_uwb/img/movimento1.jpg" alt="">
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/movimento1.jpg" alt="">
 
 For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz.
 
