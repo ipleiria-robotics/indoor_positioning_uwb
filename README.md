@@ -68,6 +68,10 @@ We describe now the static tests:
 
 3. Teste 3 - Static test on a position were exists many NLOS commucations between anchors and tag.
 
+```
+(https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png)
+```
+
 <img title="" src="file:///C:/Users/Rui Gomes/Desktop/SLI_decawave/indoor_positioning_uwb/img/static.png" alt="">
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
