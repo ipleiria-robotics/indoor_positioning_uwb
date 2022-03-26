@@ -46,11 +46,11 @@ An example to run the scripts to generate data and analyse for the first test (T
 
 1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions and store on another file.
 
-2. **python teste1_los_plot_result.py** - loads the range file again and analyse the error on the distances using the real ranges obtained from the real position. It generates plots to demonstrate the results.
+2. **python teste1_los_ranges_analysis.py** - loads the result dataset with the distance obtained and generate an analysis on the error using the real position to determine the real distances. Generates histogram plots to represent the error.
 
 3. **python teste1_los_plot_result.py** - loads the file with the results of estimated positions and determine the error comparin with the real position. It generates plots to help understanding the results.
 
-For the next test, the procedure was equal.
+For the next tests, the procedure is equal.
 
 Note: this scripts must be executed on the folder were they are.
 
@@ -62,12 +62,16 @@ In the case, for the dynamic tests, another dateset must be loaded - encoder acq
 
 An example to execute the dynamic analysis of the slow test:
 
-1. python slow_data_generate.py - load the file containing the ranges obtained on the on the test and generates the file with the positions calculations.
+1. **python slow_data_generate.py** - load the file containing the ranges obtained on the on the test and generates the file with the positions calculations.
 
-2. python slow_analysis.py - runs the analysis of the position error during his deslocation. Plots are shown to demonstrate the results.
+2. **python slow_analysis.py** - runs the analysis of the position error during his deslocation. Plots are shown to demonstrate the results.
 
 Note: this scripts must be executed on the folder were they are.
 
+***
+
 ## Obtaining data from tag
 
-We implemented a script to capture data from tag
+We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
+
+<img>
