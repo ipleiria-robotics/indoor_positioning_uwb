@@ -15,6 +15,6 @@ The simple functioning of this script is just reading the pinout values, count t
 
 The next image shows the connection between an example of Arduino and the encoder used:
 
-<img title="" src="file:///C:/Users/Rui Gomes/Desktop/SLI_decawave/indoor_positioning_uwb/Firmware/Encoder_tapete/squematic.png" alt="">
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/encoder_arduino.jpg" alt="" data-align="inline">
 
 ***
