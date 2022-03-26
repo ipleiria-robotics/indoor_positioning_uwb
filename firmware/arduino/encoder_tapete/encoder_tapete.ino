@@ -1,5 +1,5 @@
 int val;
-int encoder0PinA = 3; //GPIO pin 3
+int encoder0PinA = 2; //GPIO pin 2
 int encoder0PinB = 4; //GPIO pin 4
 int encoder0Pos = -1;
 int encoder0PinALast = LOW;
