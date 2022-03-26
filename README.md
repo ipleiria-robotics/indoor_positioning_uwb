@@ -88,7 +88,9 @@ For the dynamic test, were executed using two different velocities on the convey
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/movimento1.jpg" alt="">
 
-#### Devices firmware usage
+For this test an aditional data is needed, a dataset with the real movement executed by the tag so it is possible to analyse the error. For that, the usage of an encoder to determine the increments of the linear conveyor.
+
+### Devices firmware usage
 
 For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz. We used the same tag for all the elaborated tests and the anchors were on the same position on every tests. On the Firmware folder are described more information about the usage of the firmware used on the anchors an tag and to use them. The development were based on the Decawave's simple examples repository. So we made a Fork from their repository and created two branches, one for the anchors firmware and another for the tag firmware.
 
