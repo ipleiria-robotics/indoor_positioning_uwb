@@ -60,7 +60,7 @@ Note: this scripts must be executed on the folder were they are.
 
 In the case, for the dynamic tests, another dateset must be loaded - encoder acquisitions. To determine the error on thi case a linear regrassion was necessary to execute. This is because the equipment to acquire the tag data and the encoder data weren't syncronized. To solve that problem, an aproximation was necessary to elaborate.
 
-An example to execute the dynamic analysis of the slow test:
+An example to exe
 
 1. **python slow_data_generate.py** - load the file containing the ranges obtained on the on the test and generates the file with the positions calculations.
 
@@ -74,4 +74,8 @@ Note: this scripts must be executed on the folder were they are.
 
 We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
 
-<img>
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/app_decawave.jpg" alt="">
+
+With this application, it is possible start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it start, the anchors coordinates are loaded too from the respective csv file. 
+
+For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to determine.

@@ -327,10 +327,10 @@ def function_calc_position(data):
     getDate = None
 
     if int(len(data)) >= 12:
-    
+
         getDate = date_time.datetime.now().time()
         print(f"timestamp - {getDate}")
-        
+
         number_ranges_ok = 0
         dist = np.zeros((len(index_ranges), 1))
         cl = np.zeros((len(index_ranges), 1))
@@ -414,7 +414,8 @@ def obtaining_anchors_and_ranging_data(indexes, data):
         # if data_splitted[int(index_ranges[index])] != "NaN":
         if not "NaN" in data[int(index_ranges[index])]:
             ranges[index] = (int(data[int(index_ranges[index])]))
-            coeficient_level[index] = (float(data[int(index_ranges[index]) + 1]))
+            coeficient_level[index] = (
+                float(data[int(index_ranges[index]) + 1]))
             power_diference[index] = abs(float(
                 data[int(index_ranges[index]) - 2]) - float(data[int(index_ranges[index]) - 1]))
             # weight[index] = weight_list[int(index_ranges[index])]
@@ -434,14 +435,14 @@ def calculate_least_square(distances, anchor_coords):
         # print(anchors_matrix)
         for index in range(1, len(anchor_coords)):
             A[index - 1][0] = float(anchor_coords[0][0]) - \
-                              float(anchor_coords[index][0])
+                float(anchor_coords[index][0])
             A[index - 1][1] = float(anchor_coords[0][1]) - \
-                              float(anchor_coords[index][1])
+                float(anchor_coords[index][1])
             A[index - 1][2] = float(anchor_coords[0][2]) - \
-                              float(anchor_coords[index][2])
+                float(anchor_coords[index][2])
             b[index - 1] = pow(float(anchor_coords[0][0]), 2) + pow(float(anchor_coords[0][1]), 2) + pow(
                 float(anchor_coords[0][2]), 2) - pow(float(
-                anchor_coords[index][0]), 2) - pow(float(anchor_coords[index][1]), 2) - pow(
+                    anchor_coords[index][0]), 2) - pow(float(anchor_coords[index][1]), 2) - pow(
                 float(anchor_coords[index][2]), 2) + pow(int(distances[index]), 2) - pow(int(distances[0]), 2)
 
         b = np.true_divide(b, 2)
@@ -527,14 +528,14 @@ def calculate_weight_least_squared(distances, anchor_coords, weights):
 
         for index in range(1, len(anchor_coords)):
             A[index - 1][0] = float(anchor_coords[0][0]) - \
-                              float(anchor_coords[index][0])
+                float(anchor_coords[index][0])
             A[index - 1][1] = float(anchor_coords[0][1]) - \
-                              float(anchor_coords[index][1])
+                float(anchor_coords[index][1])
             A[index - 1][2] = float(anchor_coords[0][2]) - \
-                              float(anchor_coords[index][2])
+                float(anchor_coords[index][2])
             b[index - 1] = pow(float(anchor_coords[0][0]), 2) + pow(float(anchor_coords[0][1]), 2) + pow(
                 float(anchor_coords[0][2]), 2) - pow(float(
-                anchor_coords[index][0]), 2) - pow(float(anchor_coords[index][1]), 2) - pow(
+                    anchor_coords[index][0]), 2) - pow(float(anchor_coords[index][1]), 2) - pow(
                 float(anchor_coords[index][2]), 2) + pow(int(distances[index]), 2) - pow(int(distances[0]), 2)
 
         b = np.true_divide(b, 2)
@@ -752,16 +753,14 @@ if __name__ == "__main__":
                 variable=anchor_check_8).place(x=10, y=420)
 
     positionCalc = IntVar()
-    Checkbutton(gui, text="LS pos",
-                variable=positionCalc).place(x=450, y=210)
+    # Checkbutton(gui, text="LS pos", variable=positionCalc).place(x=450, y=210)
     # plot2D = IntVar()
     # Checkbutton(gui, text="Plot 2D", variable=plot2D).place(x=450, y=240)
     saveFile = IntVar()
     Checkbutton(gui, text="Save CSV File",
-                variable=saveFile).place(x=450, y=270)
+                variable=saveFile).place(x=450, y=220)
     error_pos_calc = IntVar()
-    Checkbutton(gui, text="Pos. Error",
-                variable=error_pos_calc).place(x=450, y=240)
+    # Checkbutton(gui, text="Pos. Error", variable=error_pos_calc).place(x=450, y=240)
     # cl_ranges_calc = IntVar()
     # Checkbutton(gui, text="Deca CL range eval", variable=cl_ranges_calc).place(x=450, y=360)
     # kalman_calc = IntVar()
@@ -926,7 +925,7 @@ if __name__ == "__main__":
             count += 1
 
     save_filename_entry = Entry(width=15)
-    save_filename_entry.place(x=450, y=300)
+    save_filename_entry.place(x=450, y=250)
 
     cmd_entry = Entry(width=15)
     cmd_entry.place(x=100, y=160)
