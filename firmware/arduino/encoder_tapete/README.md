@@ -7,7 +7,7 @@ This a simple Arduino script used to count encoder pulses attached to a linear c
 The pinout used to read the pulses were:
 
 ```
-int encoder0PinA = 3; //GPIO pin 3 -> Encoder A
+int encoder0PinA = 2; //GPIO pin 2 -> Encoder A
 int encoder0PinB = 4; //GPIO pin 4 -> Encoder B
 ```
 
