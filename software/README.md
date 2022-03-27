@@ -93,7 +93,7 @@ python sli_localization_app.py
 
 An example to run the scripts to generate data and analyse for the first test (Teste 1) is now showed.
 
-1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions and store on another file. The method used on this script to compute positions was teh Iterative Least-square.
+1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions, using the Iterative Least-square, and store the results on another dataset file.
 
 2. **python teste1_los_ranges_analysis.py** - loads the result dataset with the distance obtained and generate an analysis on the error using the real position to determine the real distances. Generates histogram plots to represent the error.
 
@@ -118,3 +118,26 @@ An example to exe
 Note: this scripts must be executed on the folder were they are.
 
 ***
+
+All the options for each python script are defined on the beginning and only the initial parameters need to be changed. For example, on the file *teste1_los_generate.py* we used the next options to run the script:
+
+```
+# user config's - ONLY THING TO CHANGE
+index_load = [4, 18, 32, 46, 60, 74, 88, 102]  # static file indexes array wich are the ranges collumns
+filename = "128_los_pos1" # filename containing the dataset to load
+anchors_coords = "anchor_coordinates" # filename for the anchors coordinates dataset
+position = [12861, 2983, 1658] # real position for this test
+start = 0 # start loading line from dataset
+end = 1 # end loading line from dataset
+start_comb = 4 # combination of anchors to start (min 4)
+end_comb = 8 # combination of anchors to end (max 8)
+save_datafolder = "position1\\position1_dataset" # folder path to save the generated data
+saving_filename = "teste" # filename to save the generated data
+pos_init = [0,0,0] # init position where the iterative least-square algorithm will start
+
+
+```
+
+What is defined with this variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
+
+The rest of the other options are not necessary to change.
