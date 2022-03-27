@@ -2,7 +2,7 @@
 
 ## Overview
 
-On this folder the Python scripts and dataset are presented that we used to generate the position data and then analyse it later. The scripts are separated by folders depending on wich function.
+On this folder the Python scripts and dataset are presented that we used to generate the position data and then analyse it later. The scripts are separated by folders depending on wich function. The main principle of this part of the repository is to collect the ranges measured from the Indoor Localization System using the Decawave's UWB kit's we installed and use a pos-processing analysis to study the error on the ranges and position. The ranges are obtained by the Tag device and the position is calcualted after. The method to compute the position using the ranges obtained was the Iterative Least-square.
 
 ### Python packages
 
@@ -14,7 +14,7 @@ For the Python scripts developed we used this packages:
 
 - Matplotlib - https://matplotlib.org/
 
-To run all script correctly it is necessary to install them.
+To run all script correctly it is necessary to install all the necessary packages. Each link leads to the weibsite where it is possible to install them.
 
 ***
 
@@ -93,7 +93,7 @@ python sli_localization_app.py
 
 An example to run the scripts to generate data and analyse for the first test (Teste 1) is now showed.
 
-1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions and store on another file.
+1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions and store on another file. The method used on this script to compute positions was teh Iterative Least-square.
 
 2. **python teste1_los_ranges_analysis.py** - loads the result dataset with the distance obtained and generate an analysis on the error using the real position to determine the real distances. Generates histogram plots to represent the error.
 
