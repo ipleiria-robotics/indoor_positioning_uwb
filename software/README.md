@@ -67,7 +67,7 @@ Max_Y = 7     # max size on Y direction in meters
 Max_X = 23    # max size on X direction in meters
 Max_Z = 2.8   # Heigh to use on the gdop mapping
 scale = 1     # define the scale to use 1 meters,...
-    
+
 # array with the x,y and z coordinates
 acoord = np.array([
         [0, 0.412, 2.888],
@@ -86,6 +86,8 @@ To run this script just go to the folder and run:
 ```
 python sli_localization_app.py
 ```
+
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="">
 
 #### Static tests:
 
