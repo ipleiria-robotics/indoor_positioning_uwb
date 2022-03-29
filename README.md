@@ -42,7 +42,7 @@ More explanations can be found on each folder on the repository container.
 
 ## Respository Description
 
-In this repository exists the firmware used on the different devices and the different scripts in Python wich we used.
+In this repository exists the firmware used on the different devices and the different scripts in Python wich we used. On the foder software all the data analysis Python scripts and dataset on that folder. On the firmware folder, the programs used on the MDEK1001 kit devices as a submodule and the Arduino simple scketch used to read an encoder are stored. More information can be found on each folder describing all the steps to use the repository correctly.
 
 We used Python scripts to obtain the data, reading the serial port from the tag, and to store on a csv format the data acquired. 
 
