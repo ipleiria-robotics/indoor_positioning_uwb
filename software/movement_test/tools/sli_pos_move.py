@@ -142,18 +142,24 @@ def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, en
     x_avg = int(np.average(dataXYZ_error[:, 0]))
     x_std = int(np.std(dataXYZ_error[:, 0]))
     x_rms = int(np.average(dataXYZ_rms_error[:, 0]))
+    x_max = int(np.max(dataXYZ_error[:, 0]))
+    x_min = int(np.min(dataXYZ_error[:, 0]))
     y_avg = int(np.average(dataXYZ_error[:, 1]))
     y_std = int(np.std(dataXYZ_error[:, 1]))
     y_rms = int(np.average(dataXYZ_rms_error[:, 1]))
+    y_max = int(np.max(dataXYZ_error[:, 1]))
+    y_min = int(np.min(dataXYZ_error[:, 1]))
     z_avg = int(np.average(dataXYZ_error[:, 2]))
     z_std = int(np.std(dataXYZ_error[:, 2]) )
     z_rms = int(np.average(dataXYZ_rms_error[:, 2]))
+    z_max = int(np.max(dataXYZ_error[:, 2]))
+    z_min = int(np.min(dataXYZ_error[:, 2]))
 
     print(f"True distance: {travel_distance} mm")    
     print(f"Time duration: {test_duration}")
-    print(f"average X: {x_avg} - std X: {x_std} - rms error: {x_rms}")
-    print(f"average Y: {y_avg} - std Y: {y_std} - rms error: {y_rms}")
-    print(f"average Z: {z_avg} - std Z: {z_std} - rms error: {z_rms}")
+    print(f"average X: {x_avg} - std X: {x_std} - rms error: {x_rms} - max X error:{x_max} - min X error:{x_min}")
+    print(f"average Y: {y_avg} - std Y: {y_std} - rms error: {y_rms} - max Y error:{y_max} - min Y error:{y_min}")
+    print(f"average Z: {z_avg} - std Z: {z_std} - rms error: {z_rms} - max Z error:{z_max} - min Z error:{z_min}")
 
     # plotting data 3D and projections on 2D
     fig = plt.figure()
@@ -165,8 +171,6 @@ def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, en
 
     scatter = ax.scatter(startPoint[0], startPoint[1], startPoint[2],marker='*', label=f"Ponto inicial\n{startPoint}", color="black", s=100)
     scatter = ax.scatter(endPoint[0], endPoint[1], endPoint[2], marker='*', label=f"Ponto final\n{endPoint}", color="green", s=100)
-    # if KALMAN_USAGE:
-    #     scatter = ax.scatter(X_points_kalman, Y_points_kalman, Z_points_kalman, marker='*', label=f"KF", color="cyan")
     ax.set_xlabel('X [mm]')
     ax.set_ylabel('Y [mm]')
     ax.set_zlabel('Z [mm]')
@@ -239,41 +243,4 @@ def run_moving_script(encoder_filename, filename, anchors_coords, startPoint, en
     plt.legend()
     save_name = f"_{comb_to_plot}_anc_z.png"
     fig.savefig(folder_to_save_plot + save_name)
-    plt.show()
-    
-
-
-
-
-    # if KALMAN_USAGE:
-    #     # kalman filter
-    #     dt = 0.005
-    #     std_acc = 0
-    #     std_pos = 0.03
-
-    #     # kf = KalmanFilter(dt, std_acc)
-    #     kf = kalman.KalmanFilter(dt, std_acc, std_pos)
-    #     X_points_kalman = []
-    #     Y_points_kalman = []
-    #     Z_points_kalman = []
-
-    #     kf.Y = np.array([dataXYZ[0, 0], dataXYZ[0, 1], dataXYZ[0, 2], 0, 0, 0])
-
-    #     # kalman filter run
-    #     for pos in dataXYZ:
-    #         (kf.X, kf.P) = kf.predict(kf.X, kf.P, kf.A, kf.Q, kf.B, kf.U)
-    #         (kf.X, kf.P, kf.K) = kf.update(kf.X, kf.P, kf.Y, kf.H, kf.R)
-    #         vel_x = (pos[0] - kf.X[0, 0]) / dt
-    #         vel_y = (pos[1] - kf.X[0, 1]) / dt
-    #         vel_z = (pos[2] - kf.X[0, 2]) / dt
-    #         print(vel_x, vel_y, vel_z)
-
-    #         kf.Y = np.array([pos[0], pos[1], pos[2], vel_x, vel_y, vel_z])
-    #         pos_filtered = [int(kf.X[0, 0]), int(kf.X[0, 1]), int(kf.X[0, 2])]
-
-    #         X_points_kalman.append(pos_filtered[0])
-    #         Y_points_kalman.append(pos_filtered[1])
-    #         Z_points_kalman.append(pos_filtered[2])
-    #         # print(pos_x, pos_y, pos_z)
-    #         # print(pos_filtered)
-    #         # input()
+    plt.show()    
