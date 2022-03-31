@@ -8,7 +8,7 @@ import os
 filename = "Pos_ITLS_SLI_teste2"
 anchors_coords = "anchor_coordinates"
 position = [12861, 2983, 1658]
-combination_search = "01234567"
+combination_search = "23467"
 start = 0
 end = 5000
 save_datafolder = "position1\\plots"

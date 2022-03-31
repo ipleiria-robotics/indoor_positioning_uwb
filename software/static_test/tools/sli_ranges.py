@@ -34,7 +34,9 @@ def ranges_analisys(index_ranges, filename, anchors_filename, position, start, e
     avg_error = np.zeros(len(data.indexes))
     std_error = np.zeros(len(data.indexes))
     avg_rmse = np.zeros(len(data.indexes))
-    std_rmse = np.zeros(len(data.indexes))    
+    std_rmse = np.zeros(len(data.indexes))
+    max_error = np.zeros(len(data.indexes))
+    min_error = np.zeros(len(data.indexes))
 
     #vars to auxiliary work
     header = ""
@@ -52,6 +54,8 @@ def ranges_analisys(index_ranges, filename, anchors_filename, position, start, e
         std_error[i] = np.nanstd(error_ranges[:, i])
         avg_rmse[i] = np.nanmean(rmse_ranges[:, i])
         std_rmse[i] = np.nanstd(rmse_ranges[:, i])
+        max_error[i] = np.nanmax(error_ranges[:, i])
+        min_error[i] = np.nanmin(error_ranges[:, i])
         header = header + f"error_{i},"
         header_rms = header_rms + f"rms_{i},"
         data_to_save[:,i] = error_ranges[:,i]
@@ -128,4 +132,7 @@ def ranges_analisys(index_ranges, filename, anchors_filename, position, start, e
     print(std_error)
     print("RMSE:")
     print(avg_rmse)
-    
+    print("Max error:")
+    print(max_error)
+    print("Min error:")
+    print(min_error)
