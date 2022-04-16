@@ -134,10 +134,15 @@ end_comb = 8 # combination of anchors to end (max 8)
 save_datafolder = "position1\\position1_dataset" # folder path to save the generated data
 saving_filename = "teste" # filename to save the generated data
 pos_init = [0,0,0] # init position where the iterative least-square algorithm will start
-
-
 ```
 
 What is defined with this variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
 
 The rest of the other options are not necessary to change.
+
+
+## Generate your own data
+
+In case the user has its own dataset or want to run a different test using the same dataset we uploaded, the same procedure must be used. First, using the respective folder to load the dataset. Second, copy/create another Python script file and change the respective header on the beginning of the file. Then  it is possible to run the scripts.
+
+**Note**: our advice about this topic is to be careful how the indexes of each field are defined. Changing them or using another format could let to a different value to send to the positioning calculation.
