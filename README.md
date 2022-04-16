@@ -1,30 +1,30 @@
-# indoor_positioning_uwb
+# Indoor Localization System - UWB
 
 ## Overview
 
-Development and testing of an indoor positioning system based on UWB. 
+This repository describes the development and testing of an indoor positioning system based on UWB.
 
-The **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards were used. We adapted the examples from the Decawave's repository to program an "anchor" version and a "tag" version. The **SEGGER embedded Studio for ARM 5.70a** was the IDE used to develop firmware.
+For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, were acquired. Considering the limitations that the original firmware that comes with all the devices, it was necessary to developed our own firmware version. We adapted the simple version from the Decawave's “Getting Started” repository and using the **SEGGER embedded Studio for ARM 5.70a** we developed our own firmware version. We developed two versions, one for the devices working as anchors and the other for the devices working as tag.
 
-For the data analysing tools Python scripts were developed and using common packages.
+At the same time, we developed Python 3 scripts to communicate with the localization device to store and post-analysing the resultant data. Using this scripts, it is possible to analyse the different test elaborated.
 
-Another scripts were developed to help depending on the type of tests elaborated. More description in the follow.
-
-***
-
-## Software tools requirements
-
-The requirements for the usage of this repository software:
-
-- Installation of the IDE Segger to compile and program the devices DWM1001. To setting up the environment follow instructions from original Decawave's repository ([dwm1001-examples](https://github.com/Decawave/dwm1001-examples)). There you can see theadicional packages to install to compile the projects. It is important to fefer that, after the IDE installation, following the Decawave instructions, some options may need some corrections (if some change occour) and the user must be carefull with the size and format of the folderpath from where the project is running.
-
-- Installation of Python 3.7.5 and install the packages require to run the scripts.
-
-**Note:** during ours test we used Arduino IDE to count pulses from an encoder attached to a linear conveyor. The script used is store on the Firwamre folder too.
+To obtain the ground-truth position values, we used a theodolite, so it is possible to obtain the positioning of error.
 
 ***
 
-## Another used tools (Groud-truth):
+## Requirements
+
+##### Software tools requirements
+
+To use this repository, there are some requirements. First, it is necessary to install all the software used on the development.
+
+- Installation of the IDE Segger to compile and program the devices DWM1001. To setting up the environment, follow instructions from original Decawave's repository ([dwm1001-examples](https://github.com/Decawave/dwm1001-examples)). There you can see the adicional packages to install to compile the projects. It is important to refer that, after the IDE installation and after all the Decawave's instructions, some corrections may occur. At the same time, we recommend being careful with the size folder path where the project will be downloaded.
+
+- Installation of Python 3.7.5 and install the packages require to run the scripts. More information on the software module presented on this repository.
+
+If there is a necessity to use the same code developed, the Arduino IDE must be installed to program the Arduino device.
+
+##### Another used tools (Groud-truth):
 
 For the measurement of the ground-truth data to compare with the distances and positions estiamted another equipments were used.
 
@@ -42,21 +42,9 @@ More explanations can be found on each folder on the repository container.
 
 ## Respository Description
 
-In this repository exists the firmware used on the different devices and the different scripts in Python wich we used. On the foder software all the data analysis Python scripts and dataset on that folder. On the firmware folder, the programs used on the MDEK1001 kit devices as a submodule and the Arduino simple scketch used to read an encoder are stored. More information can be found on each folder describing all the steps to use the repository correctly.
+This repository is divided on two main folders. The firmware folder where all the firmware developed is allocated wit the correspondent guide lines. On the software folder exist all the Python scripts developed to be used on capturing and analysing data. In each folder there are guidelines explaining how to install and to execute them.
 
-We used Python scripts to obtain the data, reading the serial port from the tag, and to store on a csv format the data acquired. 
-
-Later, to calculate the position using the ranges, we used the Iterative Least-square to determine a 3D position.
-
-All the analyses were made using Python too.
-
-We uploaded some dataset with data referring to 3 different examples of a static position test and 2 examples with different velocities on a dynamic test.
-
-That data can be consulted on the dataset folder.
-
-A file containing the 8 anchors installed for our test is uploaded too. This is a important point that it must be studied. The installation of the anchor must be done using the concepts like Dillution of Precision (GDOP) and respecting some manufactor conditions too. 
-
-## Description of  the elaborated tests
+##### Description of  the elaborated tests
 
 Here we show a representation of the installation and respectives coordinates used.
 
@@ -66,7 +54,7 @@ We used this anchors disposition because we wanted to have Line-of-sight most of
 
 Using the instrumentation described before we obtained the real positions of each anchor.
 
-#### Static Tests
+###### Static Tests
 
 The static tests were divided on three situations:
 
@@ -78,7 +66,7 @@ The static tests were divided on three situations:
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
-#### Dynamic Tests
+###### Dynamic Tests
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
@@ -89,13 +77,3 @@ For the dynamic test, were executed using two different velocities on the convey
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/movimento1.jpg" alt="">
 
 For this test an aditional data is needed, a dataset with the real movement executed by the tag so it is possible to analyse the error. For that, the usage of an encoder to determine the increments of the linear conveyor.
-
-### Devices firmware usage
-
-For all tests, we used the UWB configuration of 128 preamble, with 6.81Mbps, channel 5 and prf of 64MHz. We used the same tag for all the elaborated tests and the anchors were on the same position on every tests. On the Firmware folder are described more information about the usage of the firmware used on the anchors an tag and to use them. The development were based on the Decawave's simple examples repository. So we made a Fork from their repository and created two branches, one for the anchors firmware and another for the tag firmware.
-
-Aditional for the dynamic test, an Arduino skecth were made to capture the encoders pulses that we attached on the linear conveyor so we could measure the real displacement over time.
-
-### Python Scripts usage
-
-The usage of the Python scripts were basically to read and store the data from the tag and then too run a post-processing data to compute the localization and errors analysis. On the Software folder more information can be found.
