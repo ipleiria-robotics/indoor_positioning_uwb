@@ -4,9 +4,9 @@
 
 This repository describes the development and testing of an indoor positioning system based on UWB.
 
-For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, were acquired. Considering the limitations that the original firmware that comes with all the devices, it was necessary to developed our own firmware version. We adapted the simple version from the Decawave's “Getting Started” repository and using the **SEGGER embedded Studio for ARM 5.70a** we developed our own firmware version. We developed two versions, one for the devices working as anchors and the other for the devices working as tag.
+For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, were acquired. Considering the limitations that the original firmware that comes with all the devices, it was necessary to developed our own firmware version. We adapted the simple version from the Decawave's “Getting Started” repository and using the[ **SEGGER embedded Studio for ARM 5.70a** we developed our own firmware version]([GitHub - ipleiria-robotics/dwm1001-examples: Simple C examples for Decawave DWM1001 hardware](https://github.com/ipleiria-robotics/dwm1001-examples#indoor-localization-system---uwb---firmware-getting-started)). We developed two versions, one for the devices working as anchors and the other for the devices working as tag.
 
-At the same time, we developed Python 3 scripts to communicate with the localization device to store and post-analysing the resultant data. Using this scripts, it is possible to analyse the different test elaborated.
+At the same time, [we developed Python 3 scripts](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software#-indoor-localization-system---uwb---software-folder) to communicate with the localization device to store and post-analysing the resultant data. Using this scripts, it is possible to analyse the different test elaborated.
 
 To obtain the ground-truth position values, we used a theodolite, so it is possible to obtain the positioning of error.
 
@@ -54,7 +54,7 @@ We used this anchors disposition because we wanted to have Line-of-sight most of
 
 Using the instrumentation described before we obtained the real positions of each anchor.
 
-#### Static Tests
+#### [Static Tests](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/static_test)
 
 The static tests were divided on three situations:
 
@@ -66,7 +66,7 @@ The static tests were divided on three situations:
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
-#### Dynamic Tests
+#### [Dynamic Tests](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/movement_test)
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
