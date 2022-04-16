@@ -14,7 +14,7 @@ To obtain the ground-truth position values, we used a theodolite, so it is poss
 
 ## Requirements
 
-##### Software tools requirements
+#### Software tools requirements
 
 To use this repository, there are some requirements. First, it is necessary to install all the software used on the development.
 
@@ -24,7 +24,7 @@ To use this repository, there are some requirements. First, it is necessary to i
 
 If there is a necessity to use the same code developed, the Arduino IDE must be installed to program the Arduino device.
 
-##### Another used tools (Groud-truth):
+#### Another used tools (Groud-truth):
 
 For the measurement of the ground-truth data to compare with the distances and positions estiamted another equipments were used.
 
@@ -44,7 +44,7 @@ More explanations can be found on each folder on the repository container.
 
 This repository is divided on two main folders. The firmware folder where all the firmware developed is allocated wit the correspondent guide lines. On the software folder exist all the Python scripts developed to be used on capturing and analysing data. In each folder there are guidelines explaining how to install and to execute them.
 
-##### Description of  the elaborated tests
+#### Description of  the elaborated tests
 
 Here we show a representation of the installation and respectives coordinates used.
 
@@ -54,7 +54,7 @@ We used this anchors disposition because we wanted to have Line-of-sight most of
 
 Using the instrumentation described before we obtained the real positions of each anchor.
 
-##### Static Tests
+#### Static Tests
 
 The static tests were divided on three situations:
 
@@ -66,7 +66,7 @@ The static tests were divided on three situations:
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
-##### Dynamic Tests
+#### Dynamic Tests
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
