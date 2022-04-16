@@ -54,7 +54,7 @@ We used this anchors disposition because we wanted to have Line-of-sight most of
 
 Using the instrumentation described before we obtained the real positions of each anchor.
 
-###### Static Tests
+##### Static Tests
 
 The static tests were divided on three situations:
 
@@ -66,7 +66,7 @@ The static tests were divided on three situations:
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
-###### Dynamic Tests
+##### Dynamic Tests
 
 For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
 
