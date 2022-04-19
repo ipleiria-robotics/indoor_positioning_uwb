@@ -36,6 +36,20 @@ Firmware/
 
 ---
 
+## Anchors coordinates and installation
+
+This point is crucial for the good functioning of this uwb localization system. For the installation, we recommend following some important rules:
+
+- The tag should work “inside” the area delimited by the anchors. For example, if the anchors shape is square/cube, the tag should be used inside that area/volume.
+- The devices (specially the antenna) must be away from any metal object in a radius of 20 cm aprox.
+- Study the implementation, taking account of the DOP (dilution of precision) impact. In this case, the anchors must have dispersed coordinates, so the geometry does not cause a big impact on the position estimates.
+
+In our case we used a theodolite to measure all the coordinates. So to help us on the processing coordinates in the cartesian axis, we developed a Python script ([sli_teodelito.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/goodies)) to convert the results from the theodolite in to the x, y and z coordinates.
+
+After that we copy and paste the console results on the [anchor_coordinates](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/anchor_coordinates) file, with the anchors meausre order on each line.
+
+***
+
 ## Obtaining data from tag
 
 We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
@@ -139,7 +153,6 @@ pos_init = [0,0,0] # init position where the iterative least-square algorithm wi
 What is defined with this variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
 
 The rest of the other options are not necessary to change.
-
 
 ## Generate your own data
 
