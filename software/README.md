@@ -113,11 +113,11 @@ python sli_mapping_gdop.py
 
 An example to run the scripts to generate data and analyse for the first test (Teste 1) is now showed.
 
-1. **python teste1_los_generate.py** - loads the dataset file with the ranges acquired and runs the script to calculate the positions, using the Iterative Least-square, and store the results on another dataset file.
+1. **python teste1_los_generate.py** - loads the dataset file with the distances estimated and runs the script to calculate the positions, using the Iterative Least-square, and store the results on another dataset file.
 
 2. **python teste1_los_ranges_analysis.py** - loads the result dataset with the distance obtained and generate an analysis on the error using the real position to determine the real distances. Generates histogram plots to represent the error.
 
-3. **python teste1_los_plot_result.py** - loads the file with the results of estimated positions and determine the error comparin with the real position. It generates plots to help understanding the results.
+3. **python teste1_los_plot_result.py** - loads the file with the results of estimated positions and determine the error comparing with the real position. It generates plots to help to understand the results.
 
 For the next tests, the procedure is equal.
 
@@ -127,11 +127,11 @@ Note: this scripts must be executed on the folder were they are.
 
 #### Movement tests:
 
-In the case, for the dynamic tests, another dateset must be loaded - encoder acquisitions. To determine the error on thi case a linear regrassion was necessary to execute. This is because the equipment to acquire the tag data and the encoder data weren't syncronized. To solve that problem, an aproximation was necessary to elaborate.
+In the case, for the dynamic tests, another dataset must be loaded—encoder acquisitions. To determine the error in this case, a linear regression was necessary to execute. This is because the equipment to acquire the tag data and the encoder data weren't synchronized. To solve that problem, an approximation was necessary to elaborate.
 
-An example to exe
+An example to execute the dynamic test for the slow velocity:
 
-1. **python slow_data_generate.py** - load the file containing the ranges obtained on the on the test and generates the file with the positions calculations.
+1. **python slow_data_generate.py** - load the file containing the distances obtained on the on the test and generates the file with the positions estimations.
 
 2. **python slow_analysis.py** - runs the analysis of the position error during his deslocation. Plots are shown to demonstrate the results.
 
@@ -156,7 +156,7 @@ saving_filename = "teste" # filename to save the generated data
 pos_init = [0,0,0] # init position where the iterative least-square algorithm will start
 ```
 
-What is defined with this variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
+What is defined with these variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
 
 The rest of the other options are not necessary to change.
 
