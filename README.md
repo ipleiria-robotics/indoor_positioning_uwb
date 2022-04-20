@@ -4,11 +4,11 @@
 
 This repository describes the development and testing of an indoor positioning system based on UWB.
 
-For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, were acquired. Considering the limitations that the original firmware that comes with all the devices, it was necessary to developed our own firmware version. We adapted the simple version from the Decawave's “Getting Started” repository and using the **SEGGER embedded Studio for ARM 5.70a** we developed our [own firmware version](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/firmware/). We developed two versions, one for the devices working as anchors and the other for the devices working as tag.
+For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, was acquired. Considering the limitations of the original firmware included with the devices, we adapted the firmware from the Decawave's “Getting Started” repository and, using the **SEGGER embedded Studio for ARM 5.70a**, we developed our [own firmware](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/firmware/). We developed two versions, one for the devices working as anchors and another for the device working as tag.
 
-At the same time, [we developed Python 3 scripts](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software#-indoor-localization-system---uwb---software-folder) to communicate with the localization device to store and post-analysing the resultant data. Using this scripts, it is possible to analyse the different test elaborated.
+At the same time, [we developed Python 3 scripts](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software#-indoor-localization-system---uwb---software-folder) to communicate with the localization device, to store and perform post-analysis of the resulting data. Using these scripts, it is possible to analyse the different elaborated tests.
 
-To obtain the ground-truth position values, we used a theodolite, so it is possible to obtain the positioning of error.
+To obtain the ground-truth position values, we used a theodolite, allowing us to obtain the position estimatio error.
 
 ***
 
@@ -16,33 +16,33 @@ To obtain the ground-truth position values, we used a theodolite, so it is poss
 
 #### Software tools requirements
 
-To use this repository, there are some requirements. First, it is necessary to install all the software used on the development.
+To use the software made available in this repository, there are some requirements. First, one has to install all the needed development software:
 
-- Installation of the IDE Segger to compile and program the devices DWM1001. To setting up the environment, follow instructions from original Decawave's repository ([dwm1001-examples](https://github.com/Decawave/dwm1001-examples)). There you can see the adicional packages to install to compile the projects. It is important to refer that, after the IDE installation and after all the Decawave's instructions, some corrections may occur. At the same time, we recommend being careful with the size folder path where the project will be downloaded.
+- Install the IDE Segger to compile and program the DWM1001 devices. To set up the environment, follow the instructions from the original Decawave's repository ([dwm1001-examples](https://github.com/Decawave/dwm1001-examples)). There you can see the adicional packages to install to be able to compile the projects. It is important to note that, after the IDE installation, and after all the Decawave's instructions, some corrections may occur. At the same time, we recommend being careful with the folder path size where the project will be hosted.
 
-- Installation of Python 3.7.5 and install the packages require to run the scripts. More information on the software module presented on this repository.
+- Install Python 3.7.5 and the packages required to run the scripts. More information on the software module presented on this repository.
 
 If there is a necessity to use the same code developed, the Arduino IDE must be installed to program the Arduino device.
 
-#### Another used tools (Groud-truth):
+#### Other used tools (Ground-truth):
 
-For the measurement of the ground-truth data to compare with the distances and positions estiamted another equipments were used.
+For the measurement of the ground-truth data for comparison with the estimated distances and positions, third-party equipment was used:
 
-- Theodelite to obtain the coordinates in cartesian axis format from the anchors and the tag.
+- A theodelite, to obtain the coordinates of the anchors and the tag in world coordinates.
 
 - Laser distance meter to measure the real distances between two devices.
 
-- An encoder used to obtain the pulses on relative to the conveyor we used to execute the dynamic tests.
+- An encoder used to obtain the pulses and measure the traveling distance in a conveyor (for dynamic tests).
 
-**Note:** We used this equipment but the user is free to use any other types of equipment to obtain the real values of distances and positions.
+**Note:** We used this equipment but the user is free to use any other types of equipment to obtain the real distances and positions values for ground-truth evaluationn and error assessment.
 
-More explanations can be found on each folder on the repository container.
+More explanations can be found on each folder within this repository.
 
 ***
 
 ## Respository Description
 
-This repository is divided on two main folders. The firmware folder where all the firmware developed is allocated wit the correspondent guide lines. On the software folder exist all the Python scripts developed to be used on capturing and analysing data. In each folder there are guidelines explaining how to install and to execute them.
+This repository is divided in two main folders. The firmware folder is where all the firmware developed is stored. On the software folder you will find all the Python scripts that were developed for capturing and analysing data. In each folder there are guidelines explaining how to install the needed software and how to execute it.
 
 #### Description of  the elaborated tests
 
@@ -50,25 +50,23 @@ Here we show a representation of the installation and respectives coordinates us
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/sala_info.jpg" alt="">
 
-We used this anchors disposition because we wanted to have Line-of-sight most of the comunications/positions and we have a limit on the height (3 meters). Aditional, we wanted the tag to be located inside off the area defined from the anchors. To test the localization was decided to elaborate 2 types of tests, statics and dynamics. This way it is possible to tet both situations with different difficulties. The static test was elaborated testing LOS or NLOS situations and the dynamic test were executed with different velocities on a linear conveyor moved by a DC motor.
-
-Using the instrumentation described before we obtained the real positions of each anchor.
+We used this anchors placement because we wanted to have Line-of-Sight in a reasonable part of the lab, and because we have a limit on the height (3 meters). Aditionally, we wanted the tag to be located inside the area defined from the anchors. To test the localization estimation, 2 types of tests were specified: statics and dynamic. This approach allowed testing both situations with different difficulties. The static test was elaborated testing LOS or NLOS situations, and the dynamic test were executed with different velocities on a linear conveyor, moved by a DC motor. Using the theodolite mentioned before, we obtained the real position of each anchor.
 
 #### [Static Tests](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/static_test)
 
-The static tests were divided on three situations:
+The static tests were divided in three situations:
 
-1. Teste 1 - Static test with all 8 anchors with LOS situation to the tag.
+1. Teste 1 - Static test with all 8 anchors in LOS situation to the tag.
 
-2. Teste 2 - Static test in the same previous position but with the anchor 5 on NLOS situation. As the next figure shows, we used a metalic board on the ceil near the anchor 5.
+2. Teste 2 - Static test in the same positionhas "Teste 1", but with the anchor 5 on a NLOS situation. As the next figure shows, we used a metalic board on the ceiling near the anchor 5 to force the NLOS situation.
 
-3. Teste 3 - Static test on a position were exists many NLOS commucations between anchors and tag.
+3. Teste 3 - Static test on a position were many NLOS communications exist between anchors and tag.
 
 <img title="Optional title" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/static.png" alt="Alt text">
 
 #### [Dynamic Tests](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/movement_test)
 
-For the dynamic test, were executed using two different velocities on the conveyor. One with a slow velocity and another with fast velocity. To execute the correspondent python scripts to generate positions and then analysis:
+The dynamic tests were executed using two different velocities on a conveyor, one with a slow velocity and another with a faster velocity. To execute the corresponding python scripts to generate positions and then analyse the results:
 
 1. Slow - Test with a low velocity
 
@@ -76,4 +74,4 @@ For the dynamic test, were executed using two different velocities on the convey
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/movimento1.jpg" alt="">
 
-For this test an aditional data is needed, a dataset with the real movement executed by the tag so it is possible to analyse the error. For that, the usage of an encoder to determine the increments of the linear conveyor.
+In order to properly evaluate the performance of this test, aditional data was needed, namely a dataset with the real motion carried out by the tag. For that purpose, we used an encoder, attached to the motor controlling the conveyor motion.
