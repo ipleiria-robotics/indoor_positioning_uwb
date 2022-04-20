@@ -4,9 +4,11 @@
 
 This repository describes the development and testing of an indoor positioning system based on UWB.
 
-For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, was acquired. Considering the limitations of the original firmware included with the devices, we adapted the firmware from the Decawave's “Getting Started” repository and, using the **SEGGER embedded Studio for ARM 5.70a**, we developed our [own firmware](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/firmware/). We developed two versions, one for the devices working as anchors and another for the device working as tag.
+For this work, the **MDEK1001 Development-kit**, containing 12 DWM1001 modules/development boards, was acquired. Considering the limitations of the original firmware included with the devices, we adapted the firmware from the Decawave's “Getting Started” repository and, using the **SEGGER embedded Studio for ARM 5.70a**, we developed our [own firmware](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/firmware/). We developed two versions, one for the devices working as anchors (reference points) and another for the device working as tag (device to be located).
 
-At the same time, [we developed Python 3 scripts](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software#-indoor-localization-system---uwb---software-folder) to communicate with the localization device, to store and perform post-analysis of the resulting data. Using these scripts, it is possible to analyse the different elaborated tests.
+At the same time, [we developed Python 3 scripts](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software#-indoor-localization-system---uwb---software-folder) to communicate with the tag via serial port to store the distance estimations on a csv file for post-analysis. 
+
+After we have a dataset with the measurements perform post-analysis of the resulting data. Using these scripts, it is possible to analyse the different elaborated tests.
 
 To obtain the ground-truth position values, we used a theodolite, allowing us to obtain the position estimatio error.
 
