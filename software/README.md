@@ -66,7 +66,7 @@ To run this script go to folder where is located and run:
 python sli_localization_app.py
 ```
 
-<img>
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/localize_app.png" alt="">
 
 Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox.
 
