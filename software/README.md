@@ -46,9 +46,9 @@ This point is crucial for the good functioning of this uwb localization system. 
 - The devices (specially the antenna) must be away from any metal object in a radius of 20 cm aprox.
 - Study the implementation, taking account of the DOP (dilution of precision) impact. In this case, the anchors must have dispersed coordinates, so the geometry does not cause a big impact on the position estimates.
 
-In our case we used a theodolite to measure all the coordinates. So to help us on the processing coordinates in the cartesian axis, we developed a Python script ([sli_teodelito.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/goodies)) to convert the results from the theodolite in to the x, y and z coordinates.
+In our case we used a theodolite to measure all the coordinates. So to help us on the processing coordinates in the Cartesian axis, we developed a Python script ([sli_teodelito.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/goodies)) to convert the results from the theodolite in to the x, y and z coordinates.
 
-After that we copy and paste the console results on the [anchor_coordinates](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/anchor_coordinates) file, with the anchors meausre order on each line.
+After that, we copy and paste the console results on [anchor_coordinates](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/anchor_coordinates) file, with the anchors measure order on each line.
 
 ***
 
@@ -56,7 +56,7 @@ After that we copy and paste the console results on the [anchor_coordinates](htt
 
 We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
 
-With this application, it is possible start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it start, the anchors coordinates are loaded too from the respective csv file.
+It is possible to start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it starts, the anchors coordinates are loaded too from the respective csv file.
 
 For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to determine.
 
@@ -74,13 +74,13 @@ Using this script, it is possible to interact with the tag device via Serial por
 
 ## Analysis scripts
 
-Inside the folder static_test and movement_test exists the different correspondent scripts to run on each test described prevously. To run the scripts some options must be configured. In each test, 2 main script must be used, one to generate the estimated positions file and the other to analyse the resultant data from the estimated positions. On the beggining on each file it is necessary to fullfill the options like filename to load, anchors_coordinates file, number of anchors to analyse,.. so on. 
+Inside the folder static_test and movement_test exists the different correspondent scripts to run on each test described previously. To run the scripts, some options must be configured. In each test, 2 main script must be used, one to generate the estimated positions file and the other to analyse the resultant data from the estimated positions. On the beggining on each file it is necessary to fill the options like filename to load, anchors_coordinates file, number of anchors to analyse,.. so on.
 
 #### GDOP analysis
 
-A script to draw a GDOP map to help understand the installation of the anchors and evaluate it. This is important to evaluate the conditions of the indoor localization system will work and if there is a possiblity to adapt or change to a better anchor disposition. The user must define the heigh to run the script and draw the map.
+A script to draw a GDOP map to help understand the installation of the anchors and evaluate it. This is important to evaluate the conditions of the indoor localization system will work and if there is a possibility to adapt or change to a better anchor disposition. The user must define the height to run the script and draw the map.
 
-To work with this script the next values must be filled:
+To work with this script, the next values must be filled:
 
 ```
 Max_Y = 7     # max size on Y direction in meters
@@ -104,7 +104,7 @@ acoord = np.array([
 To run this script just go to the folder and run:
 
 ```
-python sli_localization_app.py
+python sli_mapping_gdop.py
 ```
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="">
