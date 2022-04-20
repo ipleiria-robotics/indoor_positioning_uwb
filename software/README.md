@@ -107,7 +107,7 @@ To run this script just go to the folder and run:
 python sli_mapping_gdop.py
 ```
 
-<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="" width="500" height="500">
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="" width="500" height="800">
 
 #### Static tests:
 
