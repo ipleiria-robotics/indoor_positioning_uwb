@@ -2,7 +2,9 @@
 
 ## Overview
 
-On this folder the Python scripts and dataset are presented that we used to generate the position data and then analyse it later. The scripts are separated by folders depending on wich function. The main principle of this part of the repository is to collect the ranges measured from the Indoor Localization System using the Decawave's UWB kit's we installed and use a pos-processing analysis to study the error on the ranges and position. The ranges are obtained by the Tag device and the position is calcualted after. The method to compute the position using the ranges obtained was the Iterative Least-square.
+This folder contains Python scripts, the file containing the anchors coordinates (we measure with the theodolite) and dataset that we used to generate the position estimates and the error analysis. The scripts are separated by folders depending on which function.
+
+This part of the repository is used to collect the distances measured from the Indoor Localization System using the Decawave's UWB kit's we installed and to run a post-processing scripts to generate the position estimates and to analyse the error. The distances are measured by the Tag and the position is estimated after. The method to compute the position using the ranges obtained was the Iterative Least-square.
 
 ### Python packages
 
@@ -63,6 +65,10 @@ To run this script go to folder where is located and run:
 ```
 python sli_localization_app.py
 ```
+
+<img>
+
+Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox.
 
 ***
 
