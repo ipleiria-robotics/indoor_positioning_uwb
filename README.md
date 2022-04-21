@@ -58,7 +58,7 @@ The static tests were divided in three situations:
 
 1. Teste 1 - Static test with all 8 anchors in LOS situation to the tag.
 
-2. Teste 2 - Static test in the same positionhas "Teste 1", but with the anchor 5 on a NLOS situation. As the next figure shows, we used a metalic board on the ceiling near the anchor 5 to force the NLOS situation.
+2. Teste 2 - Static test in the same position has "Teste 1", but with the anchor 5 on a NLOS situation. As the next figure shows, we used a metalic board on the ceiling near the anchor 5 to force the NLOS situation.
 
 3. Teste 3 - Static test on a position were many NLOS communications exist between anchors and tag.
 
