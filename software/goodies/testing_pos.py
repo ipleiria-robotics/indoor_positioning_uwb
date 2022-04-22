@@ -1,4 +1,8 @@
-import utilities.sli_algorithms as algorithm
+# import utilities.sli_algorithms as algorithm
+import sys
+sys.path.append(".")
+sys.path.append("..")
+from utilities import sli_algorithms as algorithm
 import numpy as np
 from numpy import linalg as lin_a
 
@@ -48,8 +52,8 @@ def obtain_anchors_coord_with_index(anchors_coord_array, index_array):
 
 distances_selected = obtain_distances_with_index(ranges, combination)
 anchors_selected = obtain_anchors_coord_with_index(acoord, combination)
-position_calculated = algorithm.iterative_least_square(distances_selected, anchors_selected, posInit)
-# position_calculated = algorithm.least_square(distances_selected, anchors_selected)
+# position_calculated = algorithm.iterative_least_square(distances_selected, anchors_selected, posInit)
+position_calculated = algorithm.least_square(distances_selected, anchors_selected)
 
 
 # calculate real distances
