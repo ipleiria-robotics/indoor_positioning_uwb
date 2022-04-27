@@ -66,9 +66,9 @@ The static tests were divided in three situations:
 
 #### [Dynamic Tests](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/movement_test)
 
-The dynamic tests were executed using two different velocities on a linear conveyor, one with a slow velocity and another with a faster velocity. In order to properly evaluate the performance of this test, additional data was needed, namely a dataset with the real motion carried out by the tag. For that purpose, we used an encoder, attached to the motor controlling the conveyor motion.  An Arduino Uno R3 was used to read the pulses and together with Python script [sli_encoder.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/utilities) running on a PC. During this test, the tag device was connected to a Raspberry Pi 3 to run the previous Python scripts presented.
+Two dynamic tests were executed using a linear conveyor, one with a slow velocity and another with a faster velocity. In order to properly evaluate the performance of each test, a ground-truth measurment was taken, generating a dataset with the real motion carried out by the tag. For that purpose, we used an encoder, attached to the motor controlling the conveyor motion. An Arduino Uno R3 was used to read the encoder pulses and, together with a Python script [sli_encoder.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/utilities) running on a PC, the true position of the part was measured. The systems was calibrated beforehand. During this test, the tag device was connected to a Raspberry Pi 3 running the same Python scripts as in the static tests.
 
-All the data acquired was post-analysed to obtain the position estimated and error analysis. To execute the corresponding python scripts to generate positions and then analyse the results:
+All the data acquired was post-analysed to obtain the estimated position and perform error analysis. To execute the corresponding python scripts to generate positions and then analyse the results:
 
 1. Slow - Test with a low velocity
 
