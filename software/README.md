@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder contains Python scripts, the file containing the anchors coordinates (we measure with the theodolite) and dataset that we used to generate the position estimates and the error analysis. The scripts are separated by folders depending on which function.
+This folder contains Python scripts, the file containing the anchors coordinates (measured with the theodolite) and the dataset that was used to generate the position estimates and perform error. The scripts are separated by folders, according to their functionality.
 
 This part of the repository is used to collect the distances measured from the Indoor Localization System using the Decawave's UWB kit's we installed and to run a post-processing scripts to generate the position estimates and to analyse the error. The distances are measured by the Tag and the position is estimated after. The method to compute the position using the ranges obtained was the Iterative Least-square.
 
