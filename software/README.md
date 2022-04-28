@@ -58,7 +58,7 @@ A script to draw a DOP (HDOP, VDOP and PDOP) map to help understand the installa
 
 To work with this script, the next values must be filled:
 
-```context
+```python
 Max_Y = 7     # max size on Y direction in meters
 Max_X = 23    # max size on X direction in meters
 Max_Z = 2.8   # Heigh to use on the gdop mapping
@@ -132,7 +132,6 @@ For the next tests, the procedure is equal.
 #### Dynamic tests:
 
 In the case, for the dynamic tests, another dataset must be loaded—encoder acquisitions with the timestamps when they occur. The script sli_encoder.py ([utilities folder](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/utilities)) was used. 
-
 
 To determine the error in this case, a linear regression was necessary to execute. This is because the equipment to acquire the tag data and the encoder data were synchronized.
 
