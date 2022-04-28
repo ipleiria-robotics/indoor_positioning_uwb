@@ -93,7 +93,7 @@ We implemented a script to capture data from tag using the serial port. This scr
 
 It is possible to start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it starts, the anchors coordinates are loaded too from the respective csv file.
 
-For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to determine.
+For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to 
 
 To run this script go to folder where is located and run:
 
@@ -101,7 +101,7 @@ To run this script go to folder where is located and run:
 python sli_localization_app.py
 ```
 
-<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="">
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/app_decawave.jpg" alt="">
 
 Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox. 
 
