@@ -83,7 +83,7 @@ To run this script just go to the folder and run:
 python sli_mapping_gdop.py
 ```
 
-<img>
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="">
 
 ---
 
@@ -97,11 +97,11 @@ For the connection it is necessary to choose the Baudrate (115200) and Serial po
 
 To run this script go to folder where is located and run:
 
-```
+```python
 python sli_localization_app.py
 ```
 
-<img>
+<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="">
 
 Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox. 
 
@@ -150,7 +150,7 @@ An example to execute the dynamic test for the slow velocity:
 
 All the options for each python script are defined on the beginning and only the initial parameters need to be changed. For example, on the file *teste1_los_generate.py* we used the next options to run the script:
 
-```
+```python
 # user config's - ONLY THING TO CHANGE
 index_load = [4, 18, 32, 46, 60, 74, 88, 102]  # static file indexes array wich are the ranges collumns
 filename = "128_los_pos1" # filename containing the dataset to load
