@@ -79,9 +79,11 @@ acoord = np.array([
 
 To run this script just go to the folder and run:
 
-```
+```python
 python sli_mapping_gdop.py
 ```
+
+<img>
 
 ---
 
@@ -98,6 +100,8 @@ To run this script go to folder where is located and run:
 ```
 python sli_localization_app.py
 ```
+
+<img>
 
 Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox. 
 
