@@ -2,25 +2,9 @@
 
 ## Overview
 
-This folder contains Python scripts, the file containing the anchors coordinates (measured with the theodolite) and the dataset that was used to generate the position estimates and perform error. The scripts are separated by folders, according to their functionality.
+This part of the repository contains the Python development scripts that provides the storage and analysis of the data from the UWB tag device. Tests are separated between different folders and auxiliary scrits are stored on the goodies and utilities folders. The file anchor_coordinates contains the coordinates from all the anchors installed on this indoor localization system.
 
-This part of the repository is used to collect the distances measured from the Indoor Localization System using the Decawave's UWB kit's we installed and to run a post-processing scripts to generate the position estimates and to analyse the error. The distances are measured by the Tag and the position is estimated after. The method to compute the position using the ranges obtained was the Iterative Least-square.
-
-### Python packages
-
-For the Python scripts developed we used this packages:
-
-- Pandas - https://pandas.pydata.org/
-
-- Numpy - https://numpy.org/
-
-- Matplotlib - https://matplotlib.org/
-
-To run all script correctly it is necessary to install all the necessary packages. Each link leads to the weibsite where it is possible to install them.
-
-***
-
-```
+```context
 Firmware/
 ├── dataset/            // contains the datasets acquired
 ├── goodies/            // contains script for acquiring data from tag                     
@@ -36,14 +20,30 @@ Firmware/
 └── README.md
 ```
 
+The distances are measured by the Tag and the position is estimated after. The method to compute the position using the ranges obtained was the Iterative Least-square.
+
+---
+
+## Python packages
+
+For the Python scripts developed we used this packages:
+
+- Pandas - [https://pandas.pydata.org/](https://pandas.pydata.org/)
+
+- Numpy - [https://numpy.org/](https://numpy.org/)
+
+- Matplotlib - [https://matplotlib.org/](https://matplotlib.org/)
+
+To run all scripts correctly it is necessary to install all the necessary packages. Each link leads to the website where it is possible to install them.
+
 ---
 
 ## Anchors coordinates and installation
 
 This point is crucial for the good functioning of this uwb localization system. For the installation, we recommend following some important rules:
 
-- The tag should work “inside” the area delimited by the anchors. For example, if the anchors shape is square/cube, the tag should be used inside that area/volume.
-- The devices (specially the antenna) must be away from any metal object in a radius of 20 cm aprox.
+- The tag should work “inside” the area delimited by the anchors. For example, if the anchors shape installed is a square/cube, the tag should be used inside that area/volume.
+- The devices (especially the antenna) must be away from any metal object in a radius of 20cm approx. Additionally, it is recommended to use the antenna in a vertical direction.
 - Study the implementation, taking account of the DOP (dilution of precision) impact. In this case, the anchors must have dispersed coordinates, so the geometry does not cause a big impact on the position estimates.
 
 In our case we used a theodolite to measure all the coordinates. So to help us on the processing coordinates in the Cartesian axis, we developed a Python script ([sli_teodelito.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/goodies)) to convert the results from the theodolite in to the x, y and z coordinates.
@@ -52,41 +52,17 @@ After that, we copy and paste the console results on [anchor_coordinates](https:
 
 ***
 
-## Obtaining data from tag
+## GDOP analysis
 
-We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
-
-It is possible to start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it starts, the anchors coordinates are loaded too from the respective csv file.
-
-For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to determine.
-
-To run this script go to folder where is located and run:
-
-```
-python sli_localization_app.py
-```
-
-<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/localize_app.png" alt="">
-
-Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox.
-
-***
-
-## Analysis scripts
-
-Inside the folder static_test and movement_test exists the different correspondent scripts to run on each test described previously. To run the scripts, some options must be configured. In each test, 2 main script must be used, one to generate the estimated positions file and the other to analyse the resultant data from the estimated positions. On the beggining on each file it is necessary to fill the options like filename to load, anchors_coordinates file, number of anchors to analyse,.. so on.
-
-#### GDOP analysis
-
-A script to draw a GDOP map to help understand the installation of the anchors and evaluate it. This is important to evaluate the conditions of the indoor localization system will work and if there is a possibility to adapt or change to a better anchor disposition. The user must define the height to run the script and draw the map.
+A script to draw a DOP (HDOP, VDOP and PDOP) map to help understand the installation of the anchors and evaluate it. This is important to evaluate the conditions of the indoor localization system will work and if there is a possibility to adapt or change to a better anchor disposition. The user must define the height to run the script and draw the map.
 
 To work with this script, the next values must be filled:
 
-```
-Max_Y = 7     # max size on Y direction in meters
-Max_X = 23    # max size on X direction in meters
-Max_Z = 2.8   # Heigh to use on the gdop mapping
-scale = 1     # define the scale to use 1 meters,...
+```context
+Max_Y = 7     # max size on Y direction in meters
+Max_X = 23    # max size on X direction in meters
+Max_Z = 2.8   # Heigh to use on the gdop mapping
+scale = 1     # define the scale to use 1 meters,...
 
 # array with the x,y and z coordinates
 acoord = np.array([
@@ -107,7 +83,31 @@ To run this script just go to the folder and run:
 python sli_mapping_gdop.py
 ```
 
-<img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/gdop.jpg" alt="" width="600" height="400">
+---
+
+## Obtaining data from tag
+
+We implemented a script to capture data from tag using the serial port. This script is used mainly just to acquire the data and store it for future processing.
+
+It is possible to start the UART communication with the Tag device and send commands to interface with the Tag. At the same time, when it starts, the anchors coordinates are loaded too from the respective csv file.
+
+For the connection it is necessary to choose the Baudrate (115200) and Serial port COM detected and the operating system used. Another options are possible to determine.
+
+To run this script go to folder where is located and run:
+
+```
+python sli_localization_app.py
+```
+
+Using this script, it is possible to interact with the tag device via Serial port. It is necessary to define the port, depending on the operating system. To send commands or to rename the file to save data use the respective textbox. 
+
+**Note**: this script is important to used in case the timestamp is necessary to be stored too. So when using this script, all the set of distances obtained to all anchors are time stamped.
+
+---
+
+## Analysis scripts
+
+Inside the folder static_test and movement_test exists the different correspondent scripts to run on each test described previously. To run the scripts, some options must be configured. In each test, 2 main script must be used, one to generate the estimated positions file and the other to analyse the resultant data from the estimated positions. On the beggining on each file it is necessary to fill the options like filename to load, anchors_coordinates file, number of anchors to analyse,.. so on.
 
 #### Static tests:
 
@@ -121,23 +121,28 @@ An example to run the scripts to generate data and analyse for the first test (T
 
 For the next tests, the procedure is equal.
 
-Note: this scripts must be executed on the folder were they are.
+**Note**: this scripts must be executed on the folder were they are.
 
 ***
 
-#### Movement tests:
+#### Dynamic tests:
 
-In the case, for the dynamic tests, another dataset must be loaded—encoder acquisitions. To determine the error in this case, a linear regression was necessary to execute. This is because the equipment to acquire the tag data and the encoder data weren't synchronized. To solve that problem, an approximation was necessary to elaborate.
+In the case, for the dynamic tests, another dataset must be loaded—encoder acquisitions with the timestamps when they occur. The script sli_encoder.py ([utilities folder](https://github.com/ipleiria-robotics/indoor_positioning_uwb/tree/main/software/utilities)) was used. 
+
+
+To determine the error in this case, a linear regression was necessary to execute. This is because the equipment to acquire the tag data and the encoder data were synchronized.
 
 An example to execute the dynamic test for the slow velocity:
 
 1. **python slow_data_generate.py** - load the file containing the distances obtained on the on the test and generates the file with the positions estimations.
 
-2. **python slow_analysis.py** - runs the analysis of the position error during his deslocation. Plots are shown to demonstrate the results.
+2. **python slow_analysis.py** - runs the analysis of the position error during his deslocation, loading the dataset resultant from the previous script and, at the same time, loading the dataset conmtainined the encoder pulses with timestamps to be analysed. Plots are shown to demonstrate the results.
 
-Note: this scripts must be executed on the folder were they are.
+**Note**: this scripts must be executed on the folder were they are.
 
 ***
+
+## Input file configuration
 
 All the options for each python script are defined on the beginning and only the initial parameters need to be changed. For example, on the file *teste1_los_generate.py* we used the next options to run the script:
 
@@ -160,7 +165,7 @@ What is defined with these variables is the filenames for each file to load and 
 
 The rest of the other options are not necessary to change.
 
-## Generate your own data
+#### Generate your own data analysis
 
 In case the user has its own dataset or want to run a different test using the same dataset we uploaded, the same procedure must be used. First, using the respective folder to load the dataset. Second, copy/create another Python script file and change the respective header on the beginning of the file. Then  it is possible to run the scripts.
 
