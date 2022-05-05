@@ -172,4 +172,4 @@ The the other options, not shown here, do not need to be change.
 
 In case the user has its own datase, or wants to run a different test using the same dataset we uploaded, the same procedure must be used. First, use the corresponding folder to load the dataset. Second, copy/create another Python script file and change the corresponding header on the beginning of the file. Then, proceed with the scrips execution.
 
-**Note**: our advice about this topic is to be careful about the collum indexes where the data on each line on the loaded file. Changing them, or using another format, could lead to a different value to send to the positioning calculation.
+**Note**: our advice about this topic is to be careful about the collum indexes where the data on each line is read. Not selecting the right values of distances or position, could lead to a different value to send to the positioning calculation.
