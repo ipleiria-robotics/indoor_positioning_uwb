@@ -93,7 +93,7 @@ We implemented a script to capture data from the tag using the serial port. This
 
 It is possible to start the UART communication with the Tag device and send commands to the serial interface with the Tag. At the same time, when it starts, the anchors coordinates are loaded from the corresponding csv file.
 
-For the successful connection, one needs to choose the Baudrate (115200), the serial port where the device got attached, and the operating system being used. Another options are possible to 
+For the successful connection, one needs to choose the Baudrate (115200), the serial port where the device got attached, and the operating system being used.  
 
 To run this script, go to folder where is located and execute:
 
@@ -103,7 +103,9 @@ python sli_localization_app.py
 
 <img title="" src="https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/img/app_decawave.jpg" alt="">
 
-Using this script, it is possible to interact with the tag device via serial port. You need to define the port to use, which depends on the operating system. To send commands, or to rename the file where to save data, use the respective textbox. 
+Using this script, it is possible to interact with the tag device via serial port. You need to define the port to use, which depends on the operating system. To send commands, or to rename the file where to save data, use the respective textbox and the Button "Send" to execute. To save the datra acquired on a file, put a check on the respective checkbox and name the file on the textbox.
+
+Other options can be used, like inserting the real position and obtain the GDOP values.
 
 **Note**: this script stores the timestamps for each acquistion, so has to allow analysing the acquired data over time.
 
@@ -137,7 +139,7 @@ To determine the error in this case, a linear regression was made to estinate th
 
 The following describes an example to execute the dynamic test for the slow velocity:
 
-1. **python [slow_data_generate.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/movement_test/slow_data_generate.py)** - load the file containing the distances obtained on the on the test, and generates the file with the positions estimations.
+1. **python [slow_data_generate.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/movement_test/slow_data_generate.py)** - load the file containing the distances obtained on the test, and generates the file with the positions estimations.
 
 2. **python [slow_analysis.py](https://github.com/ipleiria-robotics/indoor_positioning_uwb/blob/main/software/movement_test/slow_analysis.py)** - runs the analysis of the position error evolution during the tag motion, loading the dataset resulting from the previous script and, at the same time, loading the dataset containing the encoder pulses with timestamps to be analysed. Plots are shown to visualize the results.
 
@@ -164,12 +166,10 @@ saving_filename = "teste" # filename to save the generated data
 pos_init = [0,0,0] # init position where the iterative least-square algorithm will start
 ```
 
-What is defined with these variables is the filenames for each file to load and to be store, the number of anchors to use, start and end line from the loaded dataset file and so on...
-
 The the other options, not shown here, do not need to be change.
 
 #### Generate your own data analysis
 
 In case the user has its own datase, or wants to run a different test using the same dataset we uploaded, the same procedure must be used. First, use the corresponding folder to load the dataset. Second, copy/create another Python script file and change the corresponding header on the beginning of the file. Then, proceed with the scrips execution.
 
-**Note**: our advice about this topic is to be careful how the indexes of each field are defined. Changing them, or using another format, could lead to a different value to send to the positioning calculation.
+**Note**: our advice about this topic is to be careful about the collum indexes where the data on each line on the loaded file. Changing them, or using another format, could lead to a different value to send to the positioning calculation.
